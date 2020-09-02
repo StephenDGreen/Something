@@ -9,16 +9,15 @@ namespace Something.Core.Model.Tests
         {
         }
 
-        [Fact]
-        public void HaveANameProperty()
+        [Theory]
+        [InlineData("Bilbo Baggins")]
+        [InlineData("Fred Bloggs")]
+        public void HaveName(string expected)
         {
-            //arrange
-            string expected = "Bilbo Baggins";
             var something = new Something() { Name = expected };
 
-            //act
             string actual = something.Name;
-            //assert
+
             Equal(expected, actual);
         }
     }
